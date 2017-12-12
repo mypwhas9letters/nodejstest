@@ -1,12 +1,22 @@
 console.log("hello world");
 const fs = require('fs');
-const os = require('os');
+
 const notes = require('./notes.js')
+const _ = require('lodash')
+const yargs = require('yargs')
 
-var user = os.userInfo();
-console.log(notes.addNote(6,7))
+let unique = _.uniq(["hi",1,3,2,3,1,2,"hi"])
 
-// fs.appendFile('greeting.txt', `Hello, ${user.username}! test ${notes.number}`, err => {
-//   if(err) throw err;
-//   console.log("It works")
-// })
+var command = process.argv[2]
+
+if (command === 'add'){
+  console.log("adding new note");
+}else if (command === 'list'){
+  console.log("listing");
+}else if(command === 'read'){
+  console.log("read");
+}else if(command === "remove"){
+  console.log("removing");
+}else{
+  console.log("not recognize");
+}
